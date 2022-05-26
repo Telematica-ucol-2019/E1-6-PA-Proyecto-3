@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Peliculas.Models"
+             x:Class="Peliculas.Views.PaginaPrincipal">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Peliculas" 
+                   TextColor="White"
+                   HorizontalOptions="FillAndExpand" FontSize="Large"/>
+            <Label Text="X"
+                   TextColor="White"
+                   FontSize="Large"
+                   Margin="0,0,15,0">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding cmdAgregarPelicula}"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <Grid RowDefinitions="*" ColumnDefinitions="*">
+            <CollectionView ItemsSource="{Binding Peliculas}"
+                            BackgroundColor="White"
+                            Margin="5,5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Pelicula">
+                        <Grid RowDefinitions="auto,auto" ColumnDefinitions="120">
+                            <Image Source="{Binding Portada}"   Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"
+                                   HeightRequest="60" 
+                                   WidthRequest="60" 
+                                   Aspect="AspectFit"
+                                   Margin="5,0,0,0"/>
+                            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <Label >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Titulo"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                            <Span Text="{Binding Titulo}" FontAttributes="Bold"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                            <Span Text="Sinopsis"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                            <Span Text="{Binding Sinopsis}" FontAttributes="Bold"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                            <Span Text="Productora"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                            <Span Text="{Binding Productora.Nombre}" FontAttributes="Bold"/>
+                                            <Span Text="{x:Static system:Environment.NewLine}"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

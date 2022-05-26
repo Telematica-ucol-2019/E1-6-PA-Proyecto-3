@@ -1,0 +1,24 @@
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Peliculas.Models
+{
+    [Table("Peliculas")]
+    public class Pelicula
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Portada { get; set; }
+        public string Titulo { get; set; }
+        public string Sinopsis { get; set; }
+
+        [ForeignKey(typeof(Actor))]
+        public int FKProductora { get; set; }
+
+        [OneToOne(CascadeOperations = CascadeOperation.All)]
+        public Productora Productora { get; set; }
+    }
+}
