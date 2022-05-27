@@ -10,52 +10,39 @@ namespace Peliculas.Repositories
      public class ProductoraRepositorio
     {
         SQLiteConnection connection;
-
         public ProductoraRepositorio()
         {
             connection = new SQLiteConnection(Constants.Constantes.DatabasePath, Constants.Constantes.Flags);
             connection.CreateTable<Productora>();
         }
-
-
         public void Init()
         {
             connection.CreateTable<Productora>();
         }
-        public void InsertOrUpdate(Productora acta)
+        public void InsertOrUpdate(Productora productora)
         {
-            if (acta.Id == 0)
+            if (productora.Id == 0)
             {
-
-                connection.Insert(acta);
-
+                connection.Insert(productora);
             }
             else
             {
-
-                connection.Update(acta);
-
+                connection.Update(productora);
             }
         }
-
         public Productora GetById(int Id)
         {
             return connection.Table<Productora>().FirstOrDefault(item => item.Id == Id);
-
         }
-
-
         public List<Productora> GetAll()
         {
 
             return connection.Table<Productora>().ToList();
         }
-
-
         public void DeleteItem(int Id)
         {
-            Productora acta = GetById(Id);
-            connection.Delete(acta);
+            Productora productora = GetById(Id);
+            connection.Delete(productora);
         }
     }
 }

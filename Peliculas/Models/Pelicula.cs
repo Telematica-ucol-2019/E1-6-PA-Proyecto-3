@@ -2,6 +2,7 @@
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Peliculas.Models
@@ -17,8 +18,12 @@ namespace Peliculas.Models
 
         [ForeignKey(typeof(Productora))]
         public int FKProductora { get; set; }
-
         [OneToOne(CascadeOperations = CascadeOperation.All)]
         public Productora Productora { get; set; }
+
+        [ForeignKey(typeof(Actor))]
+        public int FKActorId { get; set; }
+        [ManyToMany(typeof(ActorPelicula), CascadeOperations = CascadeOperation.All)]
+        public ObservableCollection<Actor> Actores { get; set; }
     }
 }

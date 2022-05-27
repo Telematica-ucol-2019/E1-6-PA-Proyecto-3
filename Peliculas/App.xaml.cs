@@ -18,7 +18,6 @@ namespace Peliculas
                     _PeliculasDb = new PeliculaRepositorio();
                 }
                 return _PeliculasDb;
-
             }
         }
         private static ProductoraRepositorio _ProductorasDb;
@@ -31,7 +30,32 @@ namespace Peliculas
                     _ProductorasDb = new ProductoraRepositorio();
                 }
                 return _ProductorasDb;
+            }
+        }
 
+        private static ActorRepositorio _ActoresDb;
+        public static ActorRepositorio ActoresDb
+        {
+            get
+            {
+                if (_ActoresDb == null)
+                {
+                    _ActoresDb = new ActorRepositorio();
+                }
+                return _ActoresDb;
+            }
+        }
+
+        private static ActorPeliculaRepositorio _ActorPeliculaDb;
+        public static ActorPeliculaRepositorio ActorPeliculaDb
+        {
+            get
+            {
+                if (_ActorPeliculaDb == null)
+                {
+                    _ActorPeliculaDb = new ActorPeliculaRepositorio();
+                }
+                return _ActorPeliculaDb;
             }
         }
         public App()
@@ -39,6 +63,8 @@ namespace Peliculas
             InitializeComponent();
             PeliculasDb.Init();
             ProductorasDb.Init();
+            ActoresDb.Init();
+            ActorPeliculaDb.Init();
             MainPage = new NavigationPage(new PaginaPrincipal());
         }
         protected override void OnStart()

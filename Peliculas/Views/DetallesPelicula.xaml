@@ -3,68 +3,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             x:Name="this"
-             x:Class="Peliculas.Views.DetallesPelicula">
-    <ContentPage.Content>
-        <StackLayout BackgroundColor="White" Margin="10,10" 
-                     BindingContext="{Binding BindingContext.Pelicula , Source={x:Reference this}}"
-                     x:DataType="model:Pelicula">
-            <Grid RowDefinitions="auto,auto,auto,auto,auto,auto,*,auto,auto" ColumnDefinitions="auto,*">
-                <Image Source="{Binding Portada}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Label Text="Titulo" Grid.Row="1" Grid.Column="0" VerticalTextAlignment="Center"/>
-                <Entry Text="{Binding Titulo}" Grid.Row="1" Grid.Column="1"/>
-                <Label Grid.Row="1" Grid.Column="0">
-                    <Label.FormattedText>
-                        <FormattedString>
-
-                            <Span Text="{x:Static system:Environment.NewLine}"/>
-
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Entry Text="{Binding Sinopsis}" Grid.Row="2" Grid.Column="1"/>
-                <Label Grid.Row="2" Grid.Column="0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Sinopsis"/>
-                            <Span Text="{x:Static system:Environment.NewLine}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <Entry Text="{Binding Productora.Nombre}" Grid.Row="3" Grid.Column="1"/>
-                <Label Grid.Row="3" Grid.Column="0">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span Text="Productora"/>
-                            <Span Text="{x:Static system:Environment.NewLine}"/>
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-
-                <StackLayout Grid.Row="5"
-                             Grid.Column="0"
-                             Grid.ColumnSpan="2"
-                             Orientation="Horizontal"
-                             HorizontalOptions="End">
-
-                </StackLayout>
-
-
-                <StackLayout Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" 
-                         VerticalOptions="EndAndExpand" HorizontalOptions="End">
-                    <Button Text="CANCELAR" BackgroundColor="Red" TextColor="White" HorizontalOptions="End"/>
-                    <Button Text="GRABAR" 
-                        BackgroundColor="Green" 
-                        TextColor="White" 
-                        HorizontalOptions="End"
-                        Command="{Binding BindingContext.cmdAgregarPelicula , Source={x:Reference this}}"
-                        CommandParameter="{Binding .}"/>
-                </StackLayout>
+             x:Name="thisDetallesPelicula"
+             x:Class="Peliculas.Views.DetallesPelicula"
+             Title="Detalles de la pelicula">
+<ContentPage.Content>
+        <Grid BackgroundColor="AliceBlue" RowSpacing="0" ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+                <ScrollView Grid.Row="0" BackgroundColor="#e6e8fd">
+                    <StackLayout
+                            Margin="10"
+                            VerticalOptions="StartAndExpand"
+                            BindingContext="{Binding BindingContext.Pelicula, Source={x:Reference thisDetallesPelicula}}"
+                            x:DataType="model:Pelicula">
+                        <Image Source="{Binding Portada}" WidthRequest="165" HeightRequest="165"/>
+                        <Label Text="Titulo" TextColor="DimGray"/>
+                        <Entry
+                            BackgroundColor="White"
+                            PlaceholderColor="LightGray"
+                            TextColor="Gray"
+                            Text="{Binding Titulo, Mode=TwoWay}"
+                            Placeholder="Titulo">
+                        </Entry>
+                        <Label Text="Sinopsis" TextColor="DimGray"/>
+                        <Entry
+                            BackgroundColor="White"
+                            PlaceholderColor="LightGray"
+                            TextColor="Gray"
+                            Text="{Binding Sinopsis, Mode=TwoWay}"
+                            Placeholder="Sinopsis">
+                        </Entry>
+                        <Label Text="Productora" TextColor="DimGray"/>
+                        <Entry
+                            BackgroundColor="White"
+                            PlaceholderColor="LightGray"
+                            TextColor="Gray"
+                            Text="{Binding Productora.Nombre, Mode=TwoWay}"
+                            Placeholder="Productora">
+                        </Entry>
+                        <Button
+                            Text="Agregar"
+                            BackgroundColor="#5865F2"
+                            TextColor="White"
+                            CornerRadius="10"
+                            Command="{Binding BindingContext.cmdAgregarPelicula , Source={x:Reference thisDetallesPelicula}}"
+                            CommandParameter="{Binding .}"/>
+                        <Button
+                            Text="Cancelar"
+                            BackgroundColor="#5865F2"
+                            TextColor="White"
+                            CornerRadius="10"/>
+                    </StackLayout>
+                </ScrollView>
             </Grid>
-
-
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

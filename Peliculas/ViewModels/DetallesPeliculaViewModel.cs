@@ -7,13 +7,13 @@ using Xamarin.Forms;
 
 namespace Peliculas.ViewModels
 {
-    public class DetallesViewModel
+    public class DetallesPeliculaViewModel
     {
         public Pelicula Pelicula { get; set; }
 
 
         public ICommand cmdAgregarPelicula { get; set; }
-        public DetallesViewModel(Pelicula pelicula)
+        public DetallesPeliculaViewModel(Pelicula pelicula)
         {
             Pelicula = pelicula;
             cmdAgregarPelicula = new Command<Pelicula>((item) => cmdGrabaPeliculaMetodo(item));

@@ -2,6 +2,7 @@
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Peliculas.Models
@@ -12,12 +13,11 @@ namespace Peliculas.Models
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string ApellidoPaterno { get; set; }
-        public string ApellidoMaterno { get; set; }
         public string Alias { get; set; }
 
         [ForeignKey(typeof(Pelicula))]
-
-        public int FKPelicula { get; set; }
+        public int FKPeliculaId { get; set; }
+        [ManyToMany(typeof(ActorPelicula), CascadeOperations = CascadeOperation.All)]
+        public ObservableCollection<Pelicula> Peliculas { get; set; }
     }
 }

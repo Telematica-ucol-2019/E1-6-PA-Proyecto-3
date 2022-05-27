@@ -2,10 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
-             x:Name="thisPaginaPrincipal"
-             x:Class="Peliculas.Views.PaginaPrincipal"
-             Title="Peliculas">
+             x:Name="thisDetallesActores"
+             x:Class="Peliculas.Views.DetallesActores">
     <ContentPage.Content>
         <Grid BackgroundColor="AliceBlue" RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -14,12 +12,12 @@
             </Grid.RowDefinitions>
             <ScrollView Grid.Row="0" BackgroundColor="#e6e8fd">
                 <StackLayout>
-                    <CollectionView ItemsSource="{Binding Peliculas}">
+                    <CollectionView ItemsSource="{Binding Pelicula.Actores}">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
-                            <DataTemplate x:DataType="model:Pelicula">
+                            <DataTemplate x:DataType="model:Actor">
                                 <Frame BackgroundColor="#ebf0ff">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -30,17 +28,16 @@
                                             <ColumnDefinition Width="160"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <Image Grid.Row="0" Grid.Column="0" Source="{Binding Portada}" HeightRequest="80" WidthRequest="80"/>
                                         <StackLayout Grid.Row="0" Grid.Column="1">
                                             <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="Titulo: " TextColor="DimGray"/>
-                                                        <Span Text="{Binding Titulo}" TextColor="#5865F2"/>
+                                                        <Span Text="{Binding Nombre}" TextColor="#5865F2"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
                                             </Label>
-                                            <Label>
+                                            <!--<Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
                                                         <Span Text="Productora: " TextColor="DimGray"/>
@@ -55,7 +52,7 @@
                                                         <Span Text="{Binding Sinopsis}" TextColor="#5865F2"/>
                                                     </FormattedString>
                                                 </Label.FormattedText>
-                                            </Label>
+                                            </Label>-->
                                         </StackLayout>
                                         <StackLayout Grid.Row="0" Grid.Column="3" VerticalOptions="Center">
                                             <Button
@@ -80,20 +77,8 @@
             </ScrollView>
             <Grid Grid.Row="1" BackgroundColor="#5865F2">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button
-                        Text="➕"
-                        BackgroundColor="GhostWhite"
-                        FontSize="Large"
-                        CornerRadius="10"
-                        Command="{Binding cmdAgregarPelicula}"/>
-                    <Button
-                        Text="👤"
-                        BackgroundColor="GhostWhite"
-                        FontSize="Large"
-                        CornerRadius="10"
-                        />
                 </StackLayout>
             </Grid>
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+ </ContentPage>

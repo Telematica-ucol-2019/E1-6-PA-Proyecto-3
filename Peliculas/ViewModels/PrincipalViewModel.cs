@@ -16,6 +16,7 @@ namespace Peliculas.ViewModels
         public ObservableCollection<Pelicula> Peliculas{ get; set; }
         public ICommand cmdAgregarPelicula { get; set; }
         public ICommand cmdModificarPelicula { get; set; }
+        public ICommand cmdModificarActor { get; set; }
         public ICommand cmdAgregarProductora { get; set; }
         public PrincipalViewModel()
         {
@@ -24,7 +25,8 @@ namespace Peliculas.ViewModels
             #endregion
             #region Comandos
             cmdAgregarPelicula = new Command(() => cmdAgregarPeliculaMetodo());
-            cmdModificarPelicula = new Command<Pelicula>((item) => cmdModificarMovieMetodo(item));
+            cmdModificarPelicula = new Command<Pelicula>((item) => cmdModificarPeliculaMetodo(item));
+            cmdModificarActor = new Command<Pelicula>((item) => cmdModificarActorMetodo(item));
             //cmdAgregarProductora = new Command(() => cmdAgregarProductoraMetodo);
             #endregion
 
@@ -52,9 +54,13 @@ namespace Peliculas.ViewModels
 
             App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
         }
-        private void cmdModificarMovieMetodo(Pelicula pelicula)
+        private void cmdModificarPeliculaMetodo(Pelicula pelicula)
         {
             App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
+        }
+        private void cmdModificarActorMetodo(Pelicula pelicula)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new DetallesActores(pelicula));
         }
         public void GetAll()
         {

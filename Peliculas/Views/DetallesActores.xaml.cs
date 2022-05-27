@@ -12,12 +12,12 @@ using Xamarin.Forms.Xaml;
 namespace Peliculas.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetallesPelicula : ContentPage
+    public partial class DetallesActores : ContentPage
     {
-        public DetallesPelicula(Pelicula pelicula)
+        public DetallesActores(Pelicula pelicula)
         {
             InitializeComponent();
-            BindingContext = new DetallesPeliculaViewModel(pelicula);
+            BindingContext = new DetallesActoresViewModel(pelicula);
         }
     }
 }
