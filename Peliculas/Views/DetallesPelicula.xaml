@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Name="this"
              x:Class="Peliculas.Views.DetallesPelicula">
     <ContentPage.Content>
         <StackLayout BackgroundColor="White" Margin="10,10" 
@@ -57,7 +59,7 @@
                         BackgroundColor="Green" 
                         TextColor="White" 
                         HorizontalOptions="End"
-                        Command="{Binding BindingContext.cmdGrabaMovie , Source={x:Reference this}}"
+                        Command="{Binding BindingContext.cmdAgregarPelicula , Source={x:Reference this}}"
                         CommandParameter="{Binding .}"/>
                 </StackLayout>
             </Grid>

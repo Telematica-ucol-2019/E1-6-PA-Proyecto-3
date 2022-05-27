@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              x:Class="Peliculas.Views.PaginaPrincipal">
     <NavigationPage.TitleView>
         <StackLayout Orientation="Horizontal">
             <Label Text="Peliculas" 
                    TextColor="White"
                    HorizontalOptions="FillAndExpand" FontSize="Large"/>
-            <Label Text="X"
+            <Label Text="+"
                    TextColor="White"
                    FontSize="Large"
                    Margin="0,0,15,0">

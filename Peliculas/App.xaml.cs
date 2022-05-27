@@ -21,25 +21,26 @@ namespace Peliculas
 
             }
         }
-        private static ProductoraRepositorio _ProductoraDb;
-        public static ProductoraRepositorio ProductoraDb
+        private static ProductoraRepositorio _ProductorasDb;
+        public static ProductoraRepositorio ProductorasDb
         {
             get
             {
-                if (_ProductoraDb == null)
+                if (_ProductorasDb == null)
                 {
-                    _ProductoraDb = new ProductoraRepositorio();
+                    _ProductorasDb = new ProductoraRepositorio();
                 }
-                return _ProductoraDb;
+                return _ProductorasDb;
 
             }
         }
         public App()
         {
             InitializeComponent();
+            PeliculasDb.Init();
+            ProductorasDb.Init();
             MainPage = new NavigationPage(new PaginaPrincipal());
         }
-
         protected override void OnStart()
         {
         }

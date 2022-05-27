@@ -41,16 +41,9 @@ namespace Peliculas.Repositories
         public Productora GetById(int Id)
         {
             return connection.Table<Productora>().FirstOrDefault(item => item.Id == Id);
-            //return connection.GetAllWithChildren<Contacto>(item => item.Id == Id).FirstOrDefault();
-
-
 
         }
 
-        //internal void InsertOrUpdate(ObservableCollection<Productora> productora)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public List<Productora> GetAll()
         {

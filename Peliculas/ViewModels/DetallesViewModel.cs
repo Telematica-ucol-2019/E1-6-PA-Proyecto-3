@@ -12,20 +12,14 @@ namespace Peliculas.ViewModels
         public Pelicula Pelicula { get; set; }
 
 
-        public ICommand cmdAgregarPeli { get; set; }
+        public ICommand cmdAgregarPelicula { get; set; }
         public DetallesViewModel(Pelicula pelicula)
         {
-
             Pelicula = pelicula;
-
-            cmdAgregarPeli = new Command<Pelicula>((item) => cmdGrabaMovieMetodo(item));
+            cmdAgregarPelicula = new Command<Pelicula>((item) => cmdGrabaPeliculaMetodo(item));
 
         }
-
-
-
-
-        private void cmdGrabaMovieMetodo(Pelicula pelicula)
+        private void cmdGrabaPeliculaMetodo(Pelicula pelicula)
         {
             App.PeliculasDb.InsertOrUpdate(pelicula);
             App.Current.MainPage.Navigation.PopAsync();

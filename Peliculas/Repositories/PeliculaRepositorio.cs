@@ -35,27 +35,18 @@ namespace Peliculas.Repositories
             {
                 Debug.WriteLine($"Id antes de actualizar {pelicula.Id}");
                 connection.Update(pelicula);
-                App.ProductoraDb.InsertOrUpdate(pelicula.Productora);
+                App.ProductorasDb.InsertOrUpdate(pelicula.Productora);
                 Debug.WriteLine($"Id despues de actualizar {pelicula.Id}");
             }
         }
-
         public Pelicula GetById(int Id)
         {
             return connection.Table<Pelicula>().FirstOrDefault(item => item.Id == Id);
-            //return connection.GetAllWithChildren<Contacto>(item => item.Id == Id).FirstOrDefault();
-
-
-
         }
-
         public List<Pelicula> GetAll()
         {
-
             return connection.GetAllWithChildren<Pelicula>().ToList();
         }
-
-
         public void DeleteItem(int Id)
         {
             Pelicula pelicula = GetById(Id);

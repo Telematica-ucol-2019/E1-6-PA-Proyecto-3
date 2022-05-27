@@ -12,10 +12,16 @@ namespace Peliculas.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PaginaPrincipal : ContentPage
     {
+        PrincipalViewModel vm = new PrincipalViewModel();
         public PaginaPrincipal()
         {
             InitializeComponent();
-            BindingContext = new PrincipalViewModel();
+            BindingContext = vm;
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            vm.GetAll();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Peliculas.Models
         public string Titulo { get; set; }
         public string Sinopsis { get; set; }
 
-        [ForeignKey(typeof(Actor))]
+        [ForeignKey(typeof(Productora))]
         public int FKProductora { get; set; }
 
         [OneToOne(CascadeOperations = CascadeOperation.All)]
