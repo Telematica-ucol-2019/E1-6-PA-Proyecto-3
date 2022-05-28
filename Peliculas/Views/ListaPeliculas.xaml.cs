@@ -12,17 +12,17 @@ using Xamarin.Forms.Xaml;
 namespace Peliculas.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetallesActores : ContentPage
+    public partial class ListaPeliculas : ContentPage
     {
-        public DetallesActores(Pelicula pelicula)
+
+        public ListaPeliculas(Actor actor)
         {
             InitializeComponent();
-            BindingContext = new DetallesActoresViewModel(pelicula);
+            BindingContext = new ListaPeliculasViewModel(actor);
         }
-        public DetallesActores()
+        protected override void OnAppearing()
         {
-            InitializeComponent();
-            BindingContext = new DetallesActoresViewModel();
+            base.OnAppearing();
         }
     }
 }

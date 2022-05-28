@@ -18,10 +18,10 @@ namespace Peliculas.ViewModels
             Pelicula = pelicula;
             cmdAgregarPelicula = new Command<Pelicula>((item) => cmdAgregarPeliculaMetodo(item));
         }
-        private void cmdAgregarPeliculaMetodo(Pelicula pelicula)
+        private async void cmdAgregarPeliculaMetodo(Pelicula pelicula)
         {
             App.PeliculasDb.InsertOrUpdate(pelicula);
-            App.Current.MainPage.Navigation.PopAsync();
+            await App.Current.MainPage.Navigation.PopAsync();
         }
     }
 }

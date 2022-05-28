@@ -18,7 +18,6 @@ namespace Peliculas.Repositories
             connection = new SQLiteConnection(Constants.Constantes.DatabasePath, Constants.Constantes.Flags);
             connection.CreateTable<Pelicula>();
         }
-
         public void Init()
         {
             connection.CreateTable<Pelicula>();

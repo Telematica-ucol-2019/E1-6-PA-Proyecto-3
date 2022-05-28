@@ -9,7 +9,6 @@ namespace Peliculas.Models
     [Table("ActoresPeliculas")]
     public class ActorPelicula
     {
-        
         public int Id { get; set; }
 
         [ForeignKey(typeof(Pelicula))]
@@ -17,6 +16,5 @@ namespace Peliculas.Models
 
         [ForeignKey(typeof(Actor))]
         public int FKActorId { get; set; }
-
     }
 }

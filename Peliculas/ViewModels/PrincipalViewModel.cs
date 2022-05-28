@@ -42,11 +42,11 @@ namespace Peliculas.ViewModels
 
         //    App.Current.MainPage.Navigation.PushAsync(new DetallesGeneral(productora));
         //}
-        private void cmdAgregarPeliculaMetodo(Pelicula pelicula)
+        private async void cmdAgregarPeliculaMetodo(Pelicula pelicula)
         {
-            App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
+            await App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
         }
-        private void cmdAgregarPeliculaMetodo()
+        private async void cmdAgregarPeliculaMetodo()
         {
             Pelicula pelicula = new Faker<Pelicula>()
                 .RuleFor(c => c.Portada, f => f.Person.Avatar);
@@ -73,19 +73,19 @@ namespace Peliculas.ViewModels
                         .RuleFor(c => c.Alias, f => f.Name.LastName())
                 );
             }
-            App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
+            await App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
         }
-        private void cmdModificarPeliculaMetodo(Pelicula pelicula)
+        private async void cmdModificarPeliculaMetodo(Pelicula pelicula)
         {
-            App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
+            await App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));
         }
-        private void cmdVerActoresMetodo(Pelicula pelicula)
+        private async void cmdVerActoresMetodo(Pelicula pelicula)
         {
-            App.Current.MainPage.Navigation.PushAsync(new DetallesActores(pelicula));
+            await App.Current.MainPage.Navigation.PushAsync(new ListaActores(pelicula));
         }
-        private void cmdVerTodosLosActoresMetodo()
+        private async void cmdVerTodosLosActoresMetodo()
         {
-            App.Current.MainPage.Navigation.PushAsync(new DetallesActores());
+            await App.Current.MainPage.Navigation.PushAsync(new ListaActores());
         }
         public void GetAll()
         {
@@ -97,7 +97,6 @@ namespace Peliculas.ViewModels
             else
             {
                 Peliculas = new ObservableCollection<Pelicula>(App.PeliculasDb.GetAll());
-
             }
             OnPropertyChanged();
         }

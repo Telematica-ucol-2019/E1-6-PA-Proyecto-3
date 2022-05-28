@@ -3,9 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             x:Name="thisPaginaPrincipal"
-             x:Class="Peliculas.Views.PaginaPrincipal"
-             Title="Peliculas">
+             x:Name="thisListaPeliculas"
+             x:Class="Peliculas.Views.ListaPeliculas"
+             Title="Peliculas del actor">
     <ContentPage.Content>
         <Grid BackgroundColor="AliceBlue" RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -58,19 +58,13 @@
                                             </Label>
                                         </StackLayout>
                                         <StackLayout Grid.Row="0" Grid.Column="3" VerticalOptions="Center">
-                                            <Button
-                                                Text="👥"
-                                                BackgroundColor="GhostWhite"
-                                                FontSize="Large"
-                                                Command="{Binding BindingContext.cmdVerActores, Source={x:Reference thisPaginaPrincipal}}"
-                                                CommandParameter="{Binding .}"/>
                                         </StackLayout>
-                                        </Grid>
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer 
-                                            Command="{Binding BindingContext.cmdModificarPelicula, Source={x:Reference thisPaginaPrincipal}}"
+                                    </Grid>
+                                    <!--<Frame.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            Command="{Binding BindingContext.cmdModificarPelicula, Source={x:Reference thisListaPeliculas}}"
                                             CommandParameter="{Binding .}"/>
-                                        </Frame.GestureRecognizers>
+                                    </Frame.GestureRecognizers>-->
                                 </Frame>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
@@ -79,18 +73,6 @@
             </ScrollView>
             <Grid Grid.Row="1" BackgroundColor="#5865F2">
                 <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button
-                        Text="➕"
-                        BackgroundColor="GhostWhite"
-                        FontSize="Large"
-                        CornerRadius="10"
-                        Command="{Binding cmdAgregarPelicula}"/>
-                    <Button
-                        Text="👥"
-                        BackgroundColor="GhostWhite"
-                        FontSize="Large"
-                        CornerRadius="10"
-                        Command="{Binding cmdVerTodosLosActores}"/>
                 </StackLayout>
             </Grid>
         </Grid>
