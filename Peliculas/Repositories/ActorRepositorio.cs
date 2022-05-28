@@ -19,7 +19,7 @@ namespace Peliculas.Repositories
         }
         public void Init()
         {
-            AgregarDesdeInicio("Luis Leyva", "El verga larga");
+            //AgregarDesdeInicio("Unkwnown", "The secret user");
             connection.CreateTable<Actor>();
         }
         private void AgregarDesdeInicio(string nombre, string alias)

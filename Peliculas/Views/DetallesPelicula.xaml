@@ -35,12 +35,20 @@
                             Placeholder="Sinopsis">
                         </Entry>
                         <Label Text="Productora" TextColor="DimGray"/>
-                        <Entry
+                    <Entry
                             BackgroundColor="White"
                             PlaceholderColor="LightGray"
                             TextColor="Gray"
                             Text="{Binding Productora.Nombre, Mode=TwoWay}"
                             Placeholder="Productora">
+                    </Entry>
+                        <Label Text="Link de la portada" TextColor="DimGray"/>
+                        <Entry
+                                BackgroundColor="White"
+                                PlaceholderColor="LightGray"
+                                TextColor="Gray"
+                                Text="{Binding Portada, Mode=TwoWay}"
+                                Placeholder="Link de la portada">
                         </Entry>
                         <Button
                             Text="Agregar"

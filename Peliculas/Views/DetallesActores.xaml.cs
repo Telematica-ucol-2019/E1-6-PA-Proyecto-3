@@ -19,5 +19,10 @@ namespace Peliculas.Views
             InitializeComponent();
             BindingContext = new DetallesActoresViewModel(pelicula);
         }
+        public DetallesActores()
+        {
+            InitializeComponent();
+            BindingContext = new DetallesActoresViewModel();
+        }
     }
 }

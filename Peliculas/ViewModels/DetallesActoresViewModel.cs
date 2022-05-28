@@ -15,7 +15,11 @@ namespace Peliculas.ViewModels
         public DetallesActoresViewModel(Pelicula pelicula)
         {
             Pelicula = pelicula;
-
+            //Actores = new ObservableCollection<Actor>(App.ActoresDb.GetAll());
+            Actores = pelicula.Actores;
+        }
+        public DetallesActoresViewModel()
+        {
             Actores = new ObservableCollection<Actor>(App.ActoresDb.GetAll());
         }
     }

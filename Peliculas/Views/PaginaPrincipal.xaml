@@ -26,8 +26,8 @@
                                             <RowDefinition Height="auto"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="80"/>
-                                            <ColumnDefinition Width="160"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="4*"/>
                                             <ColumnDefinition Width="auto"/>
                                         </Grid.ColumnDefinitions>
                                         <Image Grid.Row="0" Grid.Column="0" Source="{Binding Portada}" HeightRequest="80" WidthRequest="80"/>
@@ -62,7 +62,7 @@
                                                 Text="👥"
                                                 BackgroundColor="GhostWhite"
                                                 FontSize="Large"
-                                                Command="{Binding BindingContext.cmdModificarActor, Source={x:Reference thisPaginaPrincipal}}"
+                                                Command="{Binding BindingContext.cmdVerActores, Source={x:Reference thisPaginaPrincipal}}"
                                                 CommandParameter="{Binding .}"/>
                                             <!--<Button Text="PE"/>-->
                                         </StackLayout>
@@ -87,11 +87,11 @@
                         CornerRadius="10"
                         Command="{Binding cmdAgregarPelicula}"/>
                     <Button
-                        Text="👤"
+                        Text="👥"
                         BackgroundColor="GhostWhite"
                         FontSize="Large"
                         CornerRadius="10"
-                        />
+                        Command="{Binding cmdVerTodosLosActores}"/>
                 </StackLayout>
             </Grid>
         </Grid>
