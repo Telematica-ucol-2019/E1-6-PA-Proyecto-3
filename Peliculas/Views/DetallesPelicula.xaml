@@ -50,19 +50,14 @@
                                 Text="{Binding Portada, Mode=TwoWay}"
                                 Placeholder="Link de la portada">
                         </Entry>
-                        <Button
+                    <Button
                             Text="Agregar"
                             BackgroundColor="#5865F2"
                             TextColor="White"
                             CornerRadius="10"
                             Command="{Binding BindingContext.cmdAgregarPelicula , Source={x:Reference thisDetallesPelicula}}"
                             CommandParameter="{Binding .}"/>
-                        <Button
-                            Text="Cancelar"
-                            BackgroundColor="#5865F2"
-                            TextColor="White"
-                            CornerRadius="10"/>
-                    </StackLayout>
+                </StackLayout>
                 </ScrollView>
             </Grid>
     </ContentPage.Content>

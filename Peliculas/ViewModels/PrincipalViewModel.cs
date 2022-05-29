@@ -17,6 +17,7 @@ namespace Peliculas.ViewModels
         public ICommand cmdAgregarPelicula { get; set; }
         public ICommand cmdModificarPelicula { get; set; }
         public ICommand cmdVerActores { get; set; }
+        public ICommand cmdVerProductora { get; set; }
         public ICommand cmdVerTodosLosActores { get; set; }
         public ICommand cmdAgregarProductora { get; set; }
         public PrincipalViewModel()
@@ -28,6 +29,7 @@ namespace Peliculas.ViewModels
             cmdAgregarPelicula = new Command(() => cmdAgregarPeliculaMetodo());
             cmdModificarPelicula = new Command<Pelicula>((item) => cmdModificarPeliculaMetodo(item));
             cmdVerActores = new Command<Pelicula>((item) => cmdVerActoresMetodo(item));
+            cmdVerProductora = new Command<Pelicula>((item) => cmdVerProductoraMetodo(item));
             cmdVerTodosLosActores = new Command(() => cmdVerTodosLosActoresMetodo());
             //cmdAgregarProductora = new Command(() => cmdAgregarProductoraMetodo);
             #endregion
@@ -82,6 +84,10 @@ namespace Peliculas.ViewModels
         private async void cmdVerActoresMetodo(Pelicula pelicula)
         {
             await App.Current.MainPage.Navigation.PushAsync(new ListaActores(pelicula));
+        }
+        private async void cmdVerProductoraMetodo(Pelicula pelicula)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new ListaProductora(pelicula));
         }
         private async void cmdVerTodosLosActoresMetodo()
         {
