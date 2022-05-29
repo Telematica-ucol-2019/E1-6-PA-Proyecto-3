@@ -51,9 +51,12 @@ namespace Peliculas.ViewModels
         private async void cmdAgregarPeliculaMetodo()
         {
             Pelicula pelicula = new Faker<Pelicula>()
-                .RuleFor(c => c.Portada, f => f.Person.Avatar);
+                .RuleFor(c => c.Portada, f => f.Person.Avatar)
+                .RuleFor(c => c.Titulo, f => f.Commerce.ProductName())
+                .RuleFor(c => c.Sinopsis, f => f.Commerce.ProductDescription());
             pelicula.Productora = new Faker<Productora>()
-                .RuleFor(c => c.Nombre, f => f.Company.CompanyName());
+                .RuleFor(c => c.Nombre, f => f.Company.CompanyName())
+                .RuleFor(c => c.Logo, f => f.Internet.Avatar());
             pelicula.Actores = new ObservableCollection<Actor>();
             //pelicula.Actores.Add(
             //    new Actor()
@@ -72,7 +75,7 @@ namespace Peliculas.ViewModels
                 pelicula.Actores.Add(
                     new Faker<Actor>()
                         .RuleFor(c => c.Nombre, f => f.Name.FirstName())
-                        .RuleFor(c => c.Alias, f => f.Name.LastName())
+                        .RuleFor(c => c.Alias, f => f.Person.UserName)
                 );
             }
             await App.Current.MainPage.Navigation.PushAsync(new DetallesPelicula(pelicula));

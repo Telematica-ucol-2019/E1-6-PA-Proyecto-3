@@ -19,11 +19,6 @@ namespace Peliculas.Views
             InitializeComponent();
             BindingContext = new ListaProductoraViewModel(pelicula);
         }
-        public ListaProductora()
-        {
-            InitializeComponent();
-            BindingContext = new ListaProductoraViewModel();
-        }
         protected override void OnAppearing()
         {
             base.OnAppearing();

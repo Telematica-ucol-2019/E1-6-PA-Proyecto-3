@@ -26,9 +26,9 @@
                                             <RowDefinition Height="auto"/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="auto"/>
-                                            <ColumnDefinition Width="3*"/>
-                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="10"/>
                                         </Grid.ColumnDefinitions>
                                         <Image Grid.Row="0" Grid.Column="0" Source="{Binding Portada}" HeightRequest="80" WidthRequest="80"/>
                                         <StackLayout Grid.Row="0" Grid.Column="1">
@@ -61,16 +61,16 @@
                                             <Button
                                                 Text="👥"
                                                 BackgroundColor="GhostWhite"
-                                                FontSize="Large"
+                                                FontSize="Large"                                               
+                                                CornerRadius="10"
                                                 Command="{Binding BindingContext.cmdVerActores, Source={x:Reference thisPaginaPrincipal}}"
                                                 CommandParameter="{Binding .}"/>
-                                        </StackLayout>
-                                        <StackLayout Grid.Row="0" Grid.Column="4" VerticalOptions="Center">
                                             <Button
                                                 Text="🎬"
                                                 BackgroundColor="GhostWhite"
                                                 FontSize="Large"
-                                                Command="{Binding BindingContext.cmdVerActores, Source={x:Reference thisPaginaPrincipal}}"
+                                                CornerRadius="10"
+                                                Command="{Binding BindingContext.cmdVerProductora, Source={x:Reference thisPaginaPrincipal}}"
                                                 CommandParameter="{Binding .}"/>
                                         </StackLayout>
                                     </Grid>

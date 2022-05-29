@@ -43,14 +43,6 @@
                                             <Label>
                                                 <Label.FormattedText>
                                                     <FormattedString>
-                                                        <Span Text="Productora: " TextColor="DimGray"/>
-                                                        <Span Text="{Binding Productora.Nombre}" TextColor="#5865F2"/>
-                                                    </FormattedString>
-                                                </Label.FormattedText>
-                                            </Label>
-                                            <Label>
-                                                <Label.FormattedText>
-                                                    <FormattedString>
                                                         <Span Text="Sinopsis: " TextColor="DimGray"/>
                                                         <Span Text="{Binding Sinopsis}" TextColor="#5865F2"/>
                                                     </FormattedString>

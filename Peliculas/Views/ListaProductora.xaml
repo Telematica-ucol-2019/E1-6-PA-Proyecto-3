@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:Peliculas.Models"
              x:Name="thisListaProductora"
-             x:Class="Peliculas.Views.ListaProductora">
+             x:Class="Peliculas.Views.ListaProductora"
+             Title="Productora">
     <ContentPage.Content>
         <Grid BackgroundColor="AliceBlue" RowSpacing="0" ColumnSpacing="0">
             <Grid.RowDefinitions>
@@ -16,12 +17,14 @@
                             BindingContext="{Binding BindingContext.Productora, Source={x:Reference thisListaProductora}}"
                             x:DataType="model:Productora">
                     <Image Source="{Binding Logo}" WidthRequest="165" HeightRequest="165"/>
-                    <Label Text="Titulo" TextColor="DimGray"/>
-                    <Entry
-                            BackgroundColor="White"
-                            PlaceholderColor="LightGray"
-                            TextColor="Gray"
-                            Text="{Binding Nombre, Mode=TwoWay}"/>
+                    <Label HorizontalTextAlignment="Center" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Productora: " TextColor="DimGray"/>
+                                <Span Text="{Binding Nombre, Mode=TwoWay}" TextColor="#5865F2"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </StackLayout>
             </ScrollView>
         </Grid>

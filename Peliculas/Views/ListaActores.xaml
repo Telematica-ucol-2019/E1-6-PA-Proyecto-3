@@ -50,6 +50,7 @@
                                                 Text="🎞️"
                                                 BackgroundColor="GhostWhite"
                                                 FontSize="Large"
+                                                IsVisible="{Binding BindingContext.BotonDePeliculasVisible, Source={x:Reference thisListaActores}}"
                                                 Command="{Binding BindingContext.cmdVerPeliculas, Source={x:Reference thisListaActores}}"
                                                 CommandParameter="{Binding .}"/>
                                         </StackLayout>

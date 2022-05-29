@@ -14,15 +14,18 @@ namespace Peliculas.ViewModels
         public ObservableCollection<Actor> Actores { get; set; }
         public Pelicula Pelicula { get; set; }
         public ICommand cmdVerPeliculas { get; set; }
+        public bool BotonDePeliculasVisible { get; set; }
         public ListaActoresViewModel(Pelicula pelicula)
         {
             Pelicula = pelicula;
             Actores = pelicula.Actores;
+            BotonDePeliculasVisible = false;
             cargarElementos();
         }
         public ListaActoresViewModel()
         {
             Actores = new ObservableCollection<Actor>(App.ActoresDb.GetAll());
+            BotonDePeliculasVisible = true;
             cargarElementos();
         }
         private void cargarElementos()

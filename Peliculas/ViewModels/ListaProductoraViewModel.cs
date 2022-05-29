@@ -8,19 +8,13 @@ namespace Peliculas.ViewModels
 {
     public class ListaProductoraViewModel : BaseViewModel
     {
-        public ObservableCollection<Productora> Productoras { get; set; }
         public Pelicula Pelicula { get; set; }
+        public Productora Productora { get; set; }
 
         public ListaProductoraViewModel(Pelicula pelicula)
         {
             Pelicula = pelicula;
-            Productoras = pelicula.Productoras;
-            cargarElementos();
-        }
-
-        private void cargarElementos()
-        {
-            throw new NotImplementedException();
+            Productora = pelicula.Productora;
         }
     }
 }
